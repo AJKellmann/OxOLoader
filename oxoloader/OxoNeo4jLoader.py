@@ -13,12 +13,6 @@ from optparse import OptionParser
 
 class Neo4jOxOLoader:
     def __init__(self):
-        # if len(sys.argv) != 2:
-        #     print "\nNot enough arguments! Please pass a (path) of a config file!"
-        #     raise Exception("Not enough arguments! Please pass in a config file!")
-        # else:
-        #     config = SafeConfigParser()
-        #     config.read(sys.argv[1])
 
         parser = OptionParser()
         parser.add_option("-d","--datasources",  help="load the datasource file")
@@ -27,16 +21,8 @@ class Neo4jOxOLoader:
         parser.add_option("-W","--wipe", action="store_true", dest="wipe", help="wipe the neo4j database")
         parser.add_option("-u","--neoUser", help="specify a username for the neo4j database")
         parser.add_option("-p","--neoPass", help="specify a password for the neo4j database")
-        parser.add_option("-b","--neoURL", help="specify the bolt url for the neo4j database")
+        parser.add_option("-n","--neoURL", help="specify the bolt url for the neo4j database")
         parser.add_option("-c","--config", help="config file")
-
-        # potential other options from the config file, not in use in the OxoNeo4jLoader:
-        # parser.add_option("--oxoUrl" , default= "http://localhost:8082/oxo", help="URI of oxo")
-        # parser.add_option("--solrChunks", default = 5000, help="Size of Solr chunks")
-        # #local OxO
-        # #parser.add_option("--olsurl", default="http://localhost:8080/api", help="URL to the OLS api")
-        # parser.add_option("--olsurl", default="https://www.ebi.ac.uk/ols/api", help="URL to the OLS api")
-        # parser.add_option("--oboDbxrefUrl", default= "https://raw.githubusercontent.com/geneontology/go-site/master/metadata/db-xrefs.yaml", help="")
 
         (options, args) = parser.parse_args()
         uri=None
@@ -44,6 +30,7 @@ class Neo4jOxOLoader:
         neoPass=None
         defaultNeoUser = "neo4j" #options.neoUser
         defaultNeoPass = "dba" #options.neoPass
+        #defaultUri = "bolt://172.17.0.1:7687"
         defaultUri ="bolt://localhost:7687"#options.neoURL
 
         #First check for the config file:

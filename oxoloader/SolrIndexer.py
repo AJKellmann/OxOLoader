@@ -18,7 +18,7 @@ class SolrIndexer():
         parser.add_option("-p", "--neoPass", default="dba", help="specify a password for the neo4j database")
         parser.add_option("-n", "--neoURL", default="bolt://localhost:7687", help="specify the bolt url for the neo4j database")
         parser.add_option("-s", "--solrUrl", default="http://localhost:8983/solr/mapping/")
-        parser.add_option("-W","--wipe", action="store_true", dest="wipe", help="wipe the solr database")
+        parser.add_option("-W","--wipe", action="store_true", dest="wipe", help="wipe the solr index")
 
         #Reading the given parameters
         (options, args) = parser.parse_args()
