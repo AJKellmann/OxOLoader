@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Script for loading large amount sof data in OxO formatted CSV files into a OxO Neo4j.
+Script for loading large amounts of data in OxO formatted CSV files into a OxO Neo4j.
 You can delete the neo4j database, load datasoruces, terms and mapping files with this script
 """
 __author__ = "jupp, kellmann"
